@@ -56,3 +56,45 @@ The `steering_agent` is designed to centralize the workflow between specialized 
 1. Open the Command Palette by pressing `Ctrl+P`.
 2. Type `Cloud Code: Sign In` and press Enter.
 3. Follow the prompts to authenticate with your Google Cloud account.
+
+### 8. Deploy to Google Cloud
+#### Prerequisites
+1. Install the `gcloud` CLI without admin rights:
+   - Download and run the installer using PowerShell:
+     ```powershell
+     (New-Object Net.WebClient).DownloadFile("https://dl.google.com/dl/cloudsdk/channels/rapid/GoogleCloudSDKInstaller.exe", "$env:Temp\GoogleCloudSDKInstaller.exe")
+     & $env:Temp\GoogleCloudSDKInstaller.exe
+     ```
+   - Follow the prompts in the installer to complete the installation. Ensure the options to add `gcloud` to your `PATH` and start the shell are selected.
+   - After installation, verify the installation:
+     ```powershell
+     gcloud --version
+     ```
+
+2. Ensure you are authenticated with Google Cloud:
+   ```powershell
+   gcloud auth login
+   gcloud config set project hacker2025-team-12-dev
+   ```
+
+3. Enable required APIs:
+   ```powershell
+   gcloud services enable run.googleapis.com artifactregistry.googleapis.com
+   ```
+
+#### Steps to Deploy
+1. Build the container image:
+   ```powershell
+   gcloud builds submit --tag gcr.io/hacker2025-team-12-dev/e2eplm
+   ```
+
+2. Deploy the container to Cloud Run:
+   ```powershell
+   gcloud run deploy e2eplm \
+       --image gcr.io/hacker2025-team-12-dev/e2eplm \
+       --platform managed \
+       --region us-central1 \
+       --allow-unauthenticated
+   ```
+
+3. Note the service URL provided after deployment and use it to access your application.

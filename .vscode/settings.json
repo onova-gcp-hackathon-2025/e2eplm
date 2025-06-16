@@ -7,4 +7,5 @@
     ],
     "chat.promptFiles": true,
     "chat.mcp.enabled": true,
+    "python.analysis.typeCheckingMode": "standard",
 }

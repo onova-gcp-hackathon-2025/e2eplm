@@ -4,5 +4,6 @@
         {
             "text": "Use conventional commit message format."
         }
-    ]
+    ],
+    "chat.promptFiles": true,
 }

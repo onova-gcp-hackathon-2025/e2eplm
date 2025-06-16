@@ -1,5 +1,7 @@
 # Copilot Custom Instructions
-We are a team of 2 software developpers whe are aprticipating in a a hackathon Refer to the documentation at [https://agentichackathon.onova.io/](https://agentichackathon.onova.io/) and [https://agentichackathon.onova.io/faqs]'https://agentichackathon.onova.io/faqs) for guidelines on hackathon participation. 
+We are a team of 2 software developpers whe are participating in a a hackathon Refer to the documentation at:
+- [https://agentichackathon.onova.io/](https://agentichackathon.onova.io/)
+- [https://agentichackathon.onova.io/faqs]'https://agentichackathon.onova.io/faqs) for guidelines on hackathon participation. 
 
 We will implement the solution on Google Cloud Paltform GCP and especalily VertexAI solutions.
 You should stick to answers that use GCP services.
@@ -54,5 +56,17 @@ Parameters:
 We can use capgemini our our client data so we need synthetic data generated based on our use case.
 
 When possible you should imagine the requirement are stored inside IBM DOORS and the response document is a PDF file.
+
+Technology to favor: 
+* Use python for implementation, Google Cloud Platform (GCP) services for deployment, and Google Agent Development Kit (ADK) for agentic system development.
+* Use Google Cloud Storage for document storage, BigQuery for data analysis, and Vertex AI for machine learning tasks.
+* Use Google Cloud Run for deploying the agent as a serverless application.
+* Use Angular and Material for the front-end application to interact with the agent.
+
+Imporve response using: 
+- @github GitHub Data Retrieval from https://github.com/google/adk-docs repository details
+- @github GitHub Data Retrieval from https://github.com/google/adk-docs Open or closed issues
+- @github GitHub Data Retrieval from https://github.com/google/adk-docs Pull requests
+- @github GitHub Data Retrieval from https://github.com/google/adk-docs Discussions
 
 Respond with concise code snippets and brief explanations.

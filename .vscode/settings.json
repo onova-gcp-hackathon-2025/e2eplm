@@ -6,4 +6,5 @@
         }
     ],
     "chat.promptFiles": true,
+    "chat.mcp.enabled": true,
 }

@@ -45,3 +45,14 @@ The `steering_agent` is designed to centralize the workflow between specialized 
 - Select the agent and test it with prompts like:
   - "What is the weather in New York?"
   - "What is the time in New York?"
+
+### 7. Miscellaneous / IDE Setup
+#### Install Google Cloud Extension for VS Code
+1. Open Visual Studio Code.
+2. Go to the Extensions view by clicking on the Extensions icon in the Activity Bar on the side of the window or pressing `Ctrl+Shift+X`.
+3. Search for "Google Cloud Code" and click **Install**.
+
+#### Sign in to Google Cloud in VS Code
+1. Open the Command Palette by pressing `Ctrl+P`.
+2. Type `Cloud Code: Sign In` and press Enter.
+3. Follow the prompts to authenticate with your Google Cloud account.

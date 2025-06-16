@@ -78,4 +78,9 @@ Synthetic data should be generated based on our use case, as we may use Capgemin
 - Respond with concise code snippets and brief explanations.
 
 Our company name is Airquire.
+Our application name is ReqPilot.
 Slogan: Airquire: Elevate Your Requirements, Accelerate Your Flight.
+
+## GCP resources
+
+- [Google Cloud Storage bucket for requirements](https://console.cloud.google.com/storage/browser/airquire-reqpilot-requirements-pdf)

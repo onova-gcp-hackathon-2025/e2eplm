@@ -1,8 +1,12 @@
 # Aerospace Requirements Validation Hackathon Plan
 
-## Company Name: RequireWings
+## Company Name: Airquire
 
-This name combines "Requirements" with "Wings" to evoke both aerospace and the idea of giving requirements the ability to "take flight" through validation.
+This name evokes both "air" (aerospace) and "acquire" (gathering/validating requirements), aligning with our mission to elevate requirements management.
+
+## Application Name: ReqPilot
+
+Our application, ReqPilot, guides requirements validation and compliance, accelerating aerospace engineering workflows.
 
 ## 6-Day Plan
 
@@ -81,7 +85,7 @@ This name combines "Requirements" with "Wings" to evoke both aerospace and the i
 
 ## Elevator Pitch Template
 
-"RequireWings is revolutionizing aerospace engineering compliance by automating requirements validation. Our AI-powered platform ingests complex technical specifications and engineering responses, then uses advanced natural language understanding to identify gaps, misalignments, and ambiguities. Unlike traditional manual processes that take weeks, RequireWings delivers comprehensive validation in minutes, reducing rework by 60% and accelerating development cycles. With RequireWings, aerospace engineers can focus on innovation rather than documentation."
+"ReqPilot by Airquire is revolutionizing aerospace engineering compliance by automating requirements validation. Our AI-powered platform ingests complex technical specifications and engineering responses, then uses advanced natural language understanding to identify gaps, misalignments, and ambiguities. Unlike traditional manual processes that take weeks, ReqPilot delivers comprehensive validation in minutes, reducing rework by 60% and accelerating development cycles. With Airquire, aerospace engineers can focus on innovation rather than documentation."
 
 ## Figma Mock Screens
 1. Dashboard - Overview of requirements validation status

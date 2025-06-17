@@ -1,0 +1,29 @@
+- id: FDR-REQ-001
+  title: Power Supply Reliability
+  description: The FDR shall maintain continuous recording functionality during all phases of flight, including abnormal conditions, and must be powered by the aircraft's essential power bus with redundant backup power available for a minimum of 25 hours after loss of primary power.
+  source: CS-25.1457(c)(1)
+  priority: High
+ 
+- id: FDR-REQ-002
+  title: Crash Survivability
+  description: The FDR and its associated recording medium must withstand impact accelerations of at least 3400g for 6.5 milliseconds, a static crush of 22.2 kN (5,000 lb) for 5 minutes, penetration by a 6.35 mm (0.25 in) diameter steel rod dropped from a height of 3 m (10 ft), and submersion in saltwater at a depth of 6,000 m (20,000 ft) for 30 days.
+  source: ED-112A (EUROCAE Standard)
+  priority: High
+ 
+- id: FDR-REQ-003
+  title: Data Parameter Accuracy
+  description: The FDR shall record all mandatory parameters (e.g., time, altitude, airspeed, heading, vertical acceleration, engine parameters) with accuracy and resolution meeting the requirements defined in the regulatory compliance documents, maintaining specified tolerances throughout its operating temperature range. Validation shall include comprehensive calibration and system level testing.
+  source: CS-25.1459 & DO-178C
+  priority: High
+ 
+- id: FDR-REQ-004
+  title: Tamper Resistance and Security
+  description: The FDR enclosure and data access mechanisms shall be designed to prevent unauthorized access, modification, or deletion of recorded data. Physical and logical security measures must be implemented to ensure data integrity and chain of custody from the accident site to the investigation authorities.
+  source: Internal Security Spec v1.0
+  priority: Medium
+ 
+- id: FDR-REQ-005
+  title: Installation Location Verification
+  description: The FDR unit shall be installed in the aft-most fuselage area practically suitable to minimize the probability of damage in a crash. Installation location verification shall include structural analysis demonstrating adequate support and protection, and EMI/EMC testing to ensure proper function within the aircraft's electromagnetic environment.
+  source: Internal Installation Procedure Doc v2.3
+  priority: Medium

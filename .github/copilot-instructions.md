@@ -86,3 +86,6 @@ Slogan: Airquire: Elevate Your Requirements, Accelerate Your Flight.
 - [Google Cloud Storage bucket for requirements](https://console.cloud.google.com/storage/browser/airquire-reqpilot-requirements-pdf)
 
 Don't include Copyright comments or license headers in your responses.
+
+You should centralize all prompts into a single file named `prompt.py` in the `steering_agent` directory.
+You should always use the same model for all agents, which is `gemini-2.5-pro-preview-05-06` and import the MODEL variable from the `model.py` file in the `steering_agent` directory.

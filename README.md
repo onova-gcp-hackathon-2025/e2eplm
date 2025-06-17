@@ -10,33 +10,42 @@
   ```
 - **Install the Google ADK**:
   ```powershell
-  pip install google-adk
+  pip install poetry
+  poetry install
   ```
 
 ### 2. Create the Project Structure
 The project structure is as follows:
 ```
-parent_folder/
-    steering_agent/
-        __init__.py
-        agent.py
-        .env
+e2eplm/
+├── steering_agent/
+│   ├── __init__.py
+│   ├── agent.py
+│   ├── .env
 ```
 
 ### 3. Define the Agent
 The `steering_agent` is designed to centralize the workflow between specialized agents. It acts as a coordinator, delegating tasks to specific tools or agents based on the input and ensuring seamless integration of their outputs.
 
-### 4. Set Up the `.env` File
+### 4. Set Up the `.env` File (optional)
 - Add the following to `steering_agent/.env`:
-  ```
+  ```properties
   GOOGLE_GENAI_USE_VERTEXAI=FALSE
   GOOGLE_API_KEY=YOUR_API_KEY_HERE
+  GOOGLE_CLOUD_PROJECT=YOUR_GCP_PROJECT_ID
+  GOOGLE_CLOUD_LOCATION=us-central1
+  GOOGLE_CLOUD_STORAGE_BUCKET=YOUR_BUCKET_NAME
+  MODEL=gemini-2.0-flash-001
+  ```
+- Replace `YOUR_GCP_PROJECT_ID` and `YOUR_BUCKET_NAME` with your actual project ID and bucket name. You can find the project ID in the Google Cloud Console under **Home > Project Info** or by running the following command in the `gcloud` CLI:
+  ```powershell
+  gcloud config get-value project
   ```
 
 ### 5. Run the Agent
 - Navigate to the parent directory and launch the agent:
   ```powershell
-  cd parent_folder
+  cd e2eplm
   adk web
   ```
 
@@ -75,11 +84,19 @@ The `steering_agent` is designed to centralize the workflow between specialized 
    ```powershell
    gcloud auth login
    gcloud config set project hacker2025-team-12-dev
+   gcloud auth application-default login
    ```
+
+`gcloud auth application-default login` is required for ADC see: https://cloud.google.com/docs/authentication/set-up-adc-local-dev-environment
 
 3. Enable required APIs:
    ```powershell
    gcloud services enable run.googleapis.com artifactregistry.googleapis.com
+   ```
+
+4. Test the agent locally:
+   ```bash
+   adk run steering_agent
    ```
 
 #### Steps to Deploy

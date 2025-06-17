@@ -18,15 +18,15 @@ Our application, ReqPilot, guides requirements validation and compliance, accele
   - Create brand identity (logo, color scheme) ✅
   
 - **Afternoon**:
-  - Draft initial architecture diagram
-  - Define data model and flow
+  - Draft initial architecture diagram ✅
+  - Define data model and flow ✅
   - Create elevator pitch
   - Start initial Figma mockups
 
 ### Day 2: Backend Core - Ingestion
 - **Morning**:
-  - Set up Cloud Storage for document handling
-  - Implement DOORS data connector (or mock)
+  - Set up Cloud Storage for document handling ✅
+  Implement DOORS data connector (or mock) 🚧
   - Build PDF parser for response documents
   
 - **Afternoon**:

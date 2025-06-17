@@ -1,4 +1,68 @@
-# e2eplm
+# ReqPilot by Airquire
+
+> Elevate Your Requirements, Accelerate Your Flight.
+
+ReqPilot is an agentic system that streamlines aerospace engineering requirements validation by automating the process of requirement analysis, comparison, and gap detection.
+
+## Architecture Overview
+
+```mermaid
+graph TD
+    User([Aerospace Engineer]) -->|Uploads Documents| Frontend
+    
+    subgraph "ReqPilot Agent System"
+        Steering(Steering Agent) -->|Coordinates| ReqRefiner
+        Steering -->|Coordinates| DocIngester
+        Steering -->|Coordinates| GapAnalyzer
+        Steering -->|Coordinates| ReportGenerator
+        
+        ReqRefiner(ReqRefiner Agent) -->|Improved Requirements| Steering
+        DocIngester(Document Ingestion Agent) -->|Extracted Requirements| Steering
+        GapAnalyzer(Gap Analysis Agent) -->|Validation Results| Steering
+        ReportGenerator(Report Generation Agent) -->|Summary Reports| Steering
+    end
+    
+    subgraph "Data Sources"
+        DOORS[(IBM DOORS)]
+        PDFs[(Response PDFs)]
+    end
+    
+    subgraph "GCP Infrastructure"
+        CloudStorage[(Cloud Storage)]
+        VertexAI[Vertex AI]
+        BigQuery[(BigQuery)]
+        CloudRun[Cloud Run]
+    end
+    
+    Frontend <-->|API Requests| CloudRun
+    DOORS -->|Requirements Export| DocIngester
+    PDFs -->|Response Documents| DocIngester
+    
+    DocIngester <--> CloudStorage
+    ReqRefiner <--> VertexAI
+    GapAnalyzer <--> VertexAI
+    Steering <--> BigQuery
+    
+    CloudRun -->|Hosts| Frontend
+    CloudRun -->|Hosts| Steering
+```
+
+## Key Features
+
+- **Requirement Extraction**: Automatically extract requirements from DOORS exports and PDF documents
+- **Quality Enhancement**: Improve requirement quality using the ReqRefiner agent
+- **Gap Analysis**: Identify missing, ambiguous, or misaligned requirements
+- **Reporting**: Generate comprehensive validation reports with remediation suggestions
+- **Traceability**: Maintain complete traceability between source and response documents
+
+## Business Value
+
+- Reduce requirement-related rework by 60%
+- Accelerate development cycles through automated validation
+- Decrease supplier costs by eliminating redundant or poorly written requirements
+- Enable engineers to create high-quality requirements regardless of writing proficiency
+- Provide a modern, efficient alternative to slow legacy tools like IBM DOORS
+
 
 ## Project Setup Instructions
 
@@ -133,3 +197,4 @@ Alternatively, you can start your terminal with administrative privileges to avo
    ```
 
 3. Note the service URL provided after deployment and use it to access your application.
+

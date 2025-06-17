@@ -84,3 +84,5 @@ Slogan: Airquire: Elevate Your Requirements, Accelerate Your Flight.
 ## GCP resources
 
 - [Google Cloud Storage bucket for requirements](https://console.cloud.google.com/storage/browser/airquire-reqpilot-requirements-pdf)
+
+Don't include Copyright comments or license headers in your responses.

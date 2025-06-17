@@ -1,33 +1,31 @@
-import datetime
-from zoneinfo import ZoneInfo
-from google.adk.agents import Agent
+"""
+ReqPilot Steering Agent: Orchestrates requirements validation for aerospace engineering.
+"""
 
-def get_weather(city: str) -> dict:
-    if city.lower() == "new york":
-        return {
-            "status": "success",
-            "report": "The weather in New York is sunny with a temperature of 25°C."
-        }
-    else:
-        return {
-            "status": "error",
-            "error_message": f"Weather information for '{city}' is not available."
-        }
+from google.adk.agents import LlmAgent
+from google.adk.tools.agent_tool import AgentTool
+from .model import MODEL
+from .prompt import REQPILOT_PROMPT
+from .sub_agents.req_refiner import req_refiner_agent
 
-def get_current_time(city: str) -> dict:
-    if city.lower() == "new york":
-        tz = ZoneInfo("America/New_York")
-        now = datetime.datetime.now(tz)
-        return {"status": "success", "report": f"The current time in {city} is {now}."}
-    else:
-        return {
-            "status": "error",
-            "error_message": f"Sorry, I don't have timezone information for {city}."
-        }
+# doc_ingester_agent = agent_manager.get_agent("doc_ingester")
+# gap_analyzer_agent = agent_manager.get_agent("gap_analyzer")
+# report_generator_agent = agent_manager.get_agent("report_generator")
 
-root_agent = Agent(
+# Define the LlmAgent as the root agent
+root_agent = LlmAgent(
     name="steering_agent",
-    model="gemini-2.0-flash",
-    description="A simple agent for weather and time queries.",
-    tools=[get_weather, get_current_time],
+    model=MODEL,
+    description=(
+        "Coordinates requirements ingestion, refinement, gap analysis, and reporting for aerospace engineering. "
+        "Orchestrates sub-agents to validate requirements coverage and generate actionable reports."
+    ),
+    instruction=REQPILOT_PROMPT,
+    output_key="validation_report",
+    tools=[
+        AgentTool(agent=req_refiner_agent),
+        # AgentTool(agent=doc_ingester_agent),
+        # AgentTool(agent=gap_analyzer_agent),
+        # AgentTool(agent=report_generator_agent),
+    ],
 )

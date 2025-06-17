@@ -4,12 +4,12 @@
 
 ### 1. Set Up the Environment
 - **Create and activate a Python virtual environment**:
-  ```powershell
+  ```bash
   python -m venv .venv
-  .venv\Scripts\Activate.ps1
+  source .venv/bin/activate
   ```
 - **Install the Google ADK**:
-  ```powershell
+  ```bash
   pip install poetry
   poetry install
   ```
@@ -38,24 +38,47 @@ The `steering_agent` is designed to centralize the workflow between specialized 
   MODEL=gemini-2.0-flash-001
   ```
 - Replace `YOUR_GCP_PROJECT_ID` and `YOUR_BUCKET_NAME` with your actual project ID and bucket name. You can find the project ID in the Google Cloud Console under **Home > Project Info** or by running the following command in the `gcloud` CLI:
-  ```powershell
+  ```bash
   gcloud config get-value project
   ```
 
-### 5. Run the Agent
+### 5. Workaround for Elevated Permission Error on Windows
+If you encounter the error `OSError: [WinError 1314] A required privilege is not held by the client`, follow these steps:
+
+1. Navigate to the file `.venv\Lib\site-packages\google\adk\cli\cli_tools_click.py`.
+2. Locate the `cli_run()` function.
+3. Comment out the line that says:
+```python
+latest_log_link = os.path.join(log_dir, f'{log_file_prefix}.latest.log')
+if os.path.islink(latest_log_link):
+  os.unlink(latest_log_link)
+os.symlink(log_filepath, latest_log_link)
+
+print(f'To access latest log: tail -F {latest_log_link}')
+```
+4. Save the file and rerun your agent.
+
+Alternatively, you can start your terminal with administrative privileges to avoid this issue.
+
+### 6. Run the Agent
+- Using command line:
+   ```bash
+   adk run steering_agent
+   ```
+
 - Navigate to the parent directory and launch the agent:
-  ```powershell
+  ```bash
   cd e2eplm
   adk web
   ```
 
-### 6. Interact with the Agent
+### 7. Interact with the Agent
 - Open the provided URL (e.g., `http://localhost:8000`) in your browser.
 - Select the agent and test it with prompts like:
   - "What is the weather in New York?"
   - "What is the time in New York?"
 
-### 7. Miscellaneous / IDE Setup
+### 8. Miscellaneous / IDE Setup
 #### Install Google Cloud Extension for VS Code
 1. Open Visual Studio Code.
 2. Go to the Extensions view by clicking on the Extensions icon in the Activity Bar on the side of the window or pressing `Ctrl+Shift+X`.
@@ -66,7 +89,7 @@ The `steering_agent` is designed to centralize the workflow between specialized 
 2. Type `Cloud Code: Sign In` and press Enter.
 3. Follow the prompts to authenticate with your Google Cloud account.
 
-### 8. Deploy to Google Cloud
+### 9. Deploy to Google Cloud
 #### Prerequisites
 1. Install the `gcloud` CLI without admin rights:
    - Download and run the installer using PowerShell:
@@ -81,7 +104,7 @@ The `steering_agent` is designed to centralize the workflow between specialized 
      ```
 
 2. Ensure you are authenticated with Google Cloud:
-   ```powershell
+   ```bash
    gcloud auth login
    gcloud config set project hacker2025-team-12-dev
    gcloud auth application-default login
@@ -90,23 +113,18 @@ The `steering_agent` is designed to centralize the workflow between specialized 
 `gcloud auth application-default login` is required for ADC see: https://cloud.google.com/docs/authentication/set-up-adc-local-dev-environment
 
 3. Enable required APIs:
-   ```powershell
-   gcloud services enable run.googleapis.com artifactregistry.googleapis.com
-   ```
-
-4. Test the agent locally:
    ```bash
-   adk run steering_agent
+   gcloud services enable run.googleapis.com artifactregistry.googleapis.com
    ```
 
 #### Steps to Deploy
 1. Build the container image:
-   ```powershell
+   ```bash
    gcloud builds submit --tag gcr.io/hacker2025-team-12-dev/e2eplm
    ```
 
 2. Deploy the container to Cloud Run:
-   ```powershell
+   ```bash
    gcloud run deploy e2eplm \
        --image gcr.io/hacker2025-team-12-dev/e2eplm \
        --platform managed \

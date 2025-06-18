@@ -151,6 +151,9 @@ adk web
     Does this requirement make sense?"
   - "Give me details about FDR-REQ-001" (to test fetching information from IBM DOORS).
   - "Check if FDR-REQ-001 already exist in ibm doors and summarize it." 
+  - "Requirement #1: All test equipment and measurement means for tests shall be adequate for the test and shall be appropriate calibrated. The test article need to adequately conform to the specified definition (based on an applicable drawing set, etc.) including manufacturing process, construction and assembly.
+Requirement #2: The conformity of the test specimen with the design definition must be clearly stated in the Test Report.
+Identify requirements that are conflicting or overlapping."
 
 ### 8. Miscellaneous / IDE Setup
 #### Install Google Cloud Extension for VS Code
@@ -207,4 +210,36 @@ gcloud run deploy e2eplm \
 ```
 
 3. Note the service URL provided after deployment and use it to access your application.
+
+## Running Tests
+
+To ensure all agents and workflows are functioning as expected, you can run the provided test suite. The tests use [pytest](https://docs.pytest.org/) and cover the main agent orchestration as well as each sub-agent individually.
+
+### 1. Install Development Dependencies
+
+If you are using Poetry, install with development dependencies:
+
+```bash
+poetry install --with dev
+```
+
+### 2. Run the Tests
+
+From the project root, run:
+
+```bash
+python -m pytest tests
+```
+
+This will execute all test cases in the `tests/` directory. Each test sends a sample request to an agent and checks that the response contains expected keywords or structure.
+
+### 3. What the Tests Cover
+
+- **ReqRefiner Agent:** Checks requirement refinement and improvement suggestions.
+- **GapAnalyzer Agent:** Checks gap analysis between requirements and responses.
+- **DocIngester Agent:** Checks extraction of requirements from IBM DOORS or PDF.
+- **ReportGenerator Agent:** Checks generation of validation summary reports.
+- **Root Agent:** Checks end-to-end orchestration and validation workflow.
+
+You can add more test cases to `tests/test_agents.py` as needed.
 

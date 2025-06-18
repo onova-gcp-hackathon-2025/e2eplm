@@ -158,8 +158,7 @@ adk web
 ### 7. Interact with the Agent
 - Open the provided URL (e.g., `http://localhost:8000`) in your browser.
 - Select the agent and test it with prompts like:
-  - "Requirement: Whenever a test will be performed by the maintenance staff the possibility of maintenance induced faults shall not be allowed.
-    Does this requirement make sense?"
+  - "Requirement: Whenever a test will be performed by the maintenance staff the possibility of maintenance induced faults shall not be allowed. Does this requirement make sense?"
   - "Give me details about FDR-REQ-001" (to test fetching information from IBM DOORS).
   - "Check if FDR-REQ-001 already exist in ibm doors and summarize it." 
   - "Requirement #1: All test equipment and measurement means for tests shall be adequate for the test and shall be appropriate calibrated. The test article need to adequately conform to the specified definition (based on an applicable drawing set, etc.) including manufacturing process, construction and assembly.

@@ -109,17 +109,19 @@ e2eplm/
 ### 3. Define the Agent
 The `steering_agent` is designed to centralize the workflow between specialized agents. It acts as a coordinator, delegating tasks to specific tools or agents based on the input and ensuring seamless integration of their outputs.
 
-### 4. Set Up the `.env` File (optional)
-- Add the following to `steering_agent/.env`:
-```properties
-GOOGLE_GENAI_USE_VERTEXAI=FALSE
-GOOGLE_API_KEY=YOUR_API_KEY_HERE
-GOOGLE_CLOUD_PROJECT=YOUR_GCP_PROJECT_ID
-GOOGLE_CLOUD_LOCATION=us-central1
-GOOGLE_CLOUD_STORAGE_BUCKET=YOUR_BUCKET_NAME
-MODEL=gemini-2.0-flash-001
-```
-- Replace `YOUR_GCP_PROJECT_ID` and `YOUR_BUCKET_NAME` with your actual project ID and bucket name. You can find the project ID in the Google Cloud Console under **Home > Project Info** or by running the following command in the `gcloud` CLI:
+### 4. Environment Configuration
+
+All required `.env` files are already provided in their appropriate folder locations. You do not need to create or modify them for basic usage.
+
+Current `.env` files:
+- `steering_agent/.env` &nbsp; *(for agent runtime configuration)*
+- `steering_agent/sub_agents/doc_ingester/.env` &nbsp; *(for doc_ingester agent configuration)*
+- `steering_agent/sub_agents/req_refiner/.env` &nbsp; *(for req_refiner agent configuration)*
+- `tests/.env` &nbsp; *(for test suite configuration)*
+
+You can review or update these files as needed for your project or GCP environment.
+
+GOOGLE_CLOUD_PROJECT and GOOGLE_CLOUD_STORAGE_BUCKET are found using actual project ID and bucket name. You can find the project ID in the Google Cloud Console under **Home > Project Info** or by running the following command in the `gcloud` CLI:
 ```bash
 gcloud config get-value project
 ```
@@ -251,4 +253,3 @@ This will execute all test cases in the `tests/` directory. Each test sends a sa
 - **Root Agent:** Checks end-to-end orchestration and validation workflow.
 
 You can add more test cases to `tests/test_agents.py` as needed.
-

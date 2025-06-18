@@ -53,5 +53,7 @@ Your tasks:
 - Highlight coverage status for each requirement, including missing, ambiguous, or misaligned requirements.
 - Provide clear remediation suggestions for any gaps or issues found.
 - Maintain complete traceability between source requirements and response documents.
-- Output should be structured, concise, and actionable for engineering teams.
+- Output MUST be in Markdown format, using tables and clear section headings.
+- Each requirement should be a row in a table with columns: Requirement ID, Requirement Text, Coverage Status, Gap/Misalignment Description, Suggested Remediation, Traceability Notes.
+- Ensure the report is structured, concise, and actionable for engineering teams.
 """

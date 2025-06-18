@@ -21,36 +21,36 @@ Our application, ReqPilot, guides requirements validation and compliance, accele
   - Draft initial architecture diagram ✅
   - Define data model and flow ✅
   - Create elevator pitch ✅
-  - Start initial Figma mockups [onova-gcp-hackathon-2025-e2eplm](https://www.figma.com/files/team/1517080493673594510)
+  - Start initial Figma mockups [onova-gcp-hackathon-2025-e2eplm](https://www.figma.com/files/team/1517080493673594510) 🚧
 
 ### Day 2: Backend Core - Ingestion
 - **Morning**:
   - Set up Cloud Storage for document handling ✅
-  Implement DOORS data connector (or mock) 🚧
+  - Implement (mock) DOORS data connector ✅
   - Build PDF parser for response documents 🚧
   
 - **Afternoon**:
-  - Develop requirement extraction service
+  - Develop requirement extraction service 🚧
   - Implement document classification
-  - Set up BigQuery tables for requirements storage
-  - Unit tests for ingestion components
+  - ~~Set up BigQuery tables for requirements storage~~ 🚫
+  - Unit tests for agents responses ✅
 
 ### Day 3: Backend Core - Analysis
 - **Morning**:
-  - Integrate Vertex AI for NLP processing
-  - Build requirement intent analysis service
+  - Integrate Vertex AI for NLP processing ✅
+  - Build requirement intent analysis service ✅
   - Develop comparison engine between sources
   
 - **Afternoon**:
-  - Implement gap detection algorithm
-  - Create validation scoring system
-  - Build report generation service
-  - Deploy backend to Cloud Run
+  - Implement gap detection algorithm ✅
+  - Create validation scoring system  ✅
+  - Build report generation service ✅
+  - Deploy backend to Cloud Run 🚧
 
 ### Day 4: Frontend Development
 - **Morning**:
   - Scaffold Angular application
-  - Implement document upload interface
+  - ~~Implement document upload interface~~ 🚫
   - Create requirements visualization components
   
 - **Afternoon**:

@@ -34,7 +34,6 @@ graph TD
     subgraph "GCP Infrastructure"
         CloudStorage[(🗄️ Cloud Storage)]
         VertexAI[🧠 Vertex AI]
-        BigQuery[(📊 BigQuery)]
         CloudRun[🚀 Cloud Run]
     end
     
@@ -45,7 +44,6 @@ graph TD
     DocIngester <--> CloudStorage
     ReqRefiner <--> VertexAI
     GapAnalyzer <--> VertexAI
-    Steering <--> BigQuery
     
     CloudRun -->|🌐 Hosts| Frontend
     CloudRun -->|🌐 Hosts| Steering

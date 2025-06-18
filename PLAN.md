@@ -27,7 +27,7 @@ Our application, ReqPilot, guides requirements validation and compliance, accele
 - **Morning**:
   - Set up Cloud Storage for document handling ✅
   Implement DOORS data connector (or mock) 🚧
-  - Build PDF parser for response documents
+  - Build PDF parser for response documents 🚧
   
 - **Afternoon**:
   - Develop requirement extraction service

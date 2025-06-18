@@ -20,7 +20,7 @@ Our application, ReqPilot, guides requirements validation and compliance, accele
 - **Afternoon**:
   - Draft initial architecture diagram ✅
   - Define data model and flow ✅
-  - Create elevator pitch
+  - Create elevator pitch ✅
   - Start initial Figma mockups
 
 ### Day 2: Backend Core - Ingestion

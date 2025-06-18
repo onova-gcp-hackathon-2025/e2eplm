@@ -8,48 +8,48 @@ ReqPilot is an agentic system that streamlines aerospace engineering requirement
 
 ```mermaid
 graph TD
-    User([Aerospace Engineer]) -->|Uploads Documents| Frontend
+    User([👩‍💻 Aerospace Engineer]) -->|📤 Uploads Documents| Frontend[🖥️ Frontend]
     
     subgraph "ReqPilot Agent System"
-        Steering(Steering Agent) -->|Coordinates| ReqRefiner
-        Steering -->|Coordinates| DocIngester
-        Steering -->|Coordinates| GapAnalyzer
-        Steering -->|Coordinates| ReportGenerator
+        Steering(🤖 Steering Agent) -->|🗂️ Coordinates| ReqRefiner
+        Steering -->|🗂️ Coordinates| DocIngester
+        Steering -->|🗂️ Coordinates| GapAnalyzer
+        Steering -->|🗂️ Coordinates| ReportGenerator
         
-        ReqRefiner(ReqRefiner Agent) -->|Improved Requirements| Steering
-        DocIngester(Document Ingestion Agent) -->|Extracted Requirements| Steering
-        GapAnalyzer(Gap Analysis Agent) -->|Validation Results| Steering
-        ReportGenerator(Report Generation Agent) -->|Summary Reports| Steering
+        ReqRefiner(🛠️🤖 ReqRefiner Agent) -->|✨ Improved Requirements| Steering
+        DocIngester(📥🤖 Document Ingestion Agent) -->|🔎 Extracted Requirements| Steering
+        GapAnalyzer(🕳️🤖 Gap Analysis Agent) -->|📈 Validation Results| Steering
+        ReportGenerator(📑🤖 Report Generation Agent) -->|📝 Summary Reports| Steering
     end
     
     subgraph "Data Sources"
-        DOORS[(IBM DOORS)]
-        PDFs[(Response PDFs)]
+        DOORS[(💾 IBM DOORS)]
+        PDFs[(📄 Response PDFs)]
     end
     
     subgraph "GCP Infrastructure"
-        CloudStorage[(Cloud Storage)]
-        VertexAI[Vertex AI]
-        BigQuery[(BigQuery)]
-        CloudRun[Cloud Run]
+        CloudStorage[(🗄️ Cloud Storage)]
+        VertexAI[🧠 Vertex AI]
+        BigQuery[(📊 BigQuery)]
+        CloudRun[🚀 Cloud Run]
     end
     
-    Frontend <-->|API Requests| CloudRun
-    DOORS -->|Requirements Export| DocIngester
-    PDFs -->|Response Documents| DocIngester
+    Frontend <-->|🔗 API Requests| CloudRun
+    DOORS -->|📤 Requirements Export| DocIngester
+    PDFs -->|📤 Response Documents| DocIngester
     
     DocIngester <--> CloudStorage
     ReqRefiner <--> VertexAI
     GapAnalyzer <--> VertexAI
     Steering <--> BigQuery
     
-    CloudRun -->|Hosts| Frontend
-    CloudRun -->|Hosts| Steering
+    CloudRun -->|🌐 Hosts| Frontend
+    CloudRun -->|🌐 Hosts| Steering
 ```
 
 ## Key Features
 
-- **Requirement Extraction**: Automatically extract requirements from DOORS exports and PDF documents
+- **Requirement Extraction**: Automatically extract requirements from IBM DOORS webservices and PDF documents
 - **Quality Enhancement**: Improve requirement quality using the ReqRefiner agent
 - **Gap Analysis**: Identify missing, ambiguous, or misaligned requirements
 - **Reporting**: Generate comprehensive validation reports with remediation suggestions
@@ -86,6 +86,11 @@ e2eplm/
 │   ├── __init__.py
 │   ├── agent.py
 │   ├── .env
+├── steering_agent/sub_agents/
+│   ├── doc_ingester/
+│   ├── gap_analyzer/
+│   ├── req_refiner/
+│   ├── report_generator/
 ```
 
 ### 3. Define the Agent
@@ -132,15 +137,14 @@ Alternatively, you can start your terminal with administrative privileges to avo
 
 - Navigate to the parent directory and launch the agent:
   ```bash
-  cd e2eplm
   adk web
   ```
 
 ### 7. Interact with the Agent
 - Open the provided URL (e.g., `http://localhost:8000`) in your browser.
 - Select the agent and test it with prompts like:
-  - "What is the weather in New York?"
-  - "What is the time in New York?"
+  - "Requirement: Whenever a test will be performed by the maintenance staff the possibility of maintenance induced faults shall not be allowed.
+    Does this requirement make sense?"
 
 ### 8. Miscellaneous / IDE Setup
 #### Install Google Cloud Extension for VS Code

@@ -2,6 +2,7 @@
 ReqPilot Steering Agent: Orchestrates requirements validation for aerospace engineering.
 """
 
+from google.genai import types
 from google.adk.agents import LlmAgent
 from google.adk.tools.agent_tool import AgentTool
 from .model import MODEL
@@ -15,6 +16,11 @@ from .sub_agents.report_generator import report_generator_agent
 root_agent = LlmAgent(
     name="steering_agent",
     model=MODEL,
+    generate_content_config=types.GenerateContentConfig(
+        temperature=0.2, # More deterministic output
+        top_p=0.95,
+        top_k=40,
+    ),
     description=(
         "Coordinates requirements ingestion, refinement, gap analysis, and reporting for aerospace engineering. "
         "Orchestrates sub-agents to validate requirements coverage and generate actionable reports."

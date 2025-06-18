@@ -1,0 +1,31 @@
+```yaml
+- id: FDR-REQ-001
+  title: Physical Installation Compliance
+  description: The flight data recorder (FDR) and associated wiring must be installed according to the manufacturer's installation manual and comply with all applicable airworthiness directives (ADs) and service bulletins. The installation must ensure secure mounting, proper wiring routing, and protection from environmental factors such as vibration, temperature, and moisture.
+  source: CS-25
+  priority: High
+
+- id: FDR-REQ-002
+  title: Data Acquisition Accuracy
+  description: The FDR must accurately acquire, process, and record all specified flight parameters within the tolerances defined in the applicable FAA regulations. Data acquisition accuracy will be verified through laboratory testing and in-flight data analysis.  Recorded parameters must include, but are not limited to, airspeed, altitude, heading, engine parameters, control surface positions, and microphone audio.
+  source: DO-178C
+  priority: High
+
+- id: FDR-REQ-003
+  title: Data Recording Duration
+  description: The FDR must be capable of recording a minimum of 25 hours of flight data for all required parameters, including cockpit voice recorder data. The data recording duration shall be continuously monitored and reported.
+  source: CS-25
+  priority: High
+
+- id: FDR-REQ-004
+  title: Crash Survivability
+  description: The FDR enclosure must be designed and tested to withstand extreme impact, fire, pressure, and immersion conditions as defined by industry standards for crash survivability.  Post-crash data retrieval must be possible following exposure to these conditions.
+  source: EUROCAE ED-112A
+  priority: High
+
+- id: FDR-REQ-005
+  title: Functional Validation Procedure
+  description: A comprehensive functional validation procedure must be developed and executed to verify proper FDR operation following installation and during periodic maintenance.  This procedure will include data recording verification, data playback validation, and self-test functionality assessment. Any discrepancies must be documented and corrected before aircraft release.
+  source: Internal Spec
+  priority: Medium
+```

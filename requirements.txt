@@ -1,0 +1,4 @@
+pdfplumber>=0.10.2
+reportlab>=4.0.9
+pyyaml>=6.0.1
+google-cloud-ai-platform>=2.26.0

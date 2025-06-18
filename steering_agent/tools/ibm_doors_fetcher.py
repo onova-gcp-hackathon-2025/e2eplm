@@ -11,15 +11,15 @@ from google.adk.tools import ToolContext
 
 def fetch_requirements_from_ibm_doors(key: str, value: str, tool_context: ToolContext):
     """
-    Fetch requirements from IBM DOORS webservice.
-    For now, returns mock data from requirements.json.
+    Fetch requirements from a mock IBM DOORS requirements.json file and store a value in the tool context state.
+
     Args:
-        key: the label indexing the memory to store the value.
-        value: the information to be stored.
+        key: The label to index the memory for storing the value.
+        value: The information to be stored in the tool context state.
         tool_context: The ADK tool context.
 
     Returns:
-        A status message.
+        A dictionary with a status message and the loaded requirements.
     """
     base_dir = os.path.dirname(os.path.abspath(__file__))
     mock_path = os.path.join(

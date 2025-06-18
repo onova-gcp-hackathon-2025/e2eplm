@@ -10,10 +10,8 @@ from .sub_agents.req_refiner import req_refiner_agent
 from .sub_agents.gap_analyzer import gap_analyzer_agent
 from .sub_agents.doc_ingester import doc_ingester_agent
 
-# doc_ingester_agent = agent_manager.get_agent("doc_ingester")
 # report_generator_agent = agent_manager.get_agent("report_generator")
 
-# Define the LlmAgent as the root agent
 root_agent = LlmAgent(
     name="steering_agent",
     model=MODEL,

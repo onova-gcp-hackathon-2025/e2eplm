@@ -14,5 +14,3 @@ doc_ingester_agent = Agent(
     output_key="extracted_requirements_output",
     tools=[fetch_requirements_from_ibm_doors],
 )
-
-# sample Prompt: Give me details about FDR-REQ-001

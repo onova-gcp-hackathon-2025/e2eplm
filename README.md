@@ -80,19 +80,30 @@ pip install poetry
 poetry install
 ```
 
-### 2. Create the Project Structure
+### 2. Project Structure
 The project structure is as follows:
 ```
 e2eplm/
-├── steering_agent/
+├── steering_agent/                # Main agent orchestration and ADK entrypoint
 │   ├── __init__.py
 │   ├── agent.py
+│   ├── prompt.py                  # Centralized prompt templates for all agents
+│   ├── model.py                   # Model selection (import MODEL from here)
 │   ├── .env
-├── steering_agent/sub_agents/
-│   ├── doc_ingester/
-│   ├── gap_analyzer/
-│   ├── req_refiner/
-│   ├── report_generator/
+│   └── sub_agents/                # Specialized agent implementations
+│       ├── doc_ingester/          # Document ingestion and extraction logic
+│       ├── gap_analyzer/          # Gap analysis between requirements and responses
+│       ├── req_refiner/           # Requirement quality improvement/refinement
+│       ├── report_generator/      # Validation summary and reporting
+├── requirements_agent/            # Scripts for generating and formatting requirements (YAML, PDF)
+│   ├── generate_requirements_with_vertex.py
+│   ├── yaml_to_pdf.py
+│   └── output/                    # Generated requirements and PDFs
+├── deployment/                    # Deployment scripts for GCP/Vertex AI
+│   └── deploy.py
+├── tests/                         # Test suite for all agents and workflows
+│   ├── test_agents.py
+│   └── .env
 ```
 
 ### 3. Define the Agent

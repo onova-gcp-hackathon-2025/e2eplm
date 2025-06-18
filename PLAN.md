@@ -21,7 +21,7 @@ Our application, ReqPilot, guides requirements validation and compliance, accele
   - Draft initial architecture diagram ✅
   - Define data model and flow ✅
   - Create elevator pitch ✅
-  - Start initial Figma mockups
+  - Start initial Figma mockups [onova-gcp-hackathon-2025-e2eplm](https://www.figma.com/files/team/1517080493673594510)
 
 ### Day 2: Backend Core - Ingestion
 - **Morning**:

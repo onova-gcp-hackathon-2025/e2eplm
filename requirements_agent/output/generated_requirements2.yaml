@@ -1,0 +1,31 @@
+```yaml
+- id: FDR-REQ-006
+  title: Installation Physical Security
+  description: The flight data recorder (FDR) unit shall be installed in the most crash-survivable location practicable, as determined by a validated crashworthiness analysis. The unit shall be physically protected from impact, fire, and immersion damage to the maximum extent possible. Mounting shall withstand specified G-loads per CS-25.561.
+  source: CS-25.1457(c)(1)
+  priority: High
+
+- id: FDR-REQ-007
+  title: Data Recording Capacity and Duration
+  description: The FDR shall continuously record the parameters specified in CS-25.1457(d) for a minimum duration of 25 hours. Recorded data shall be retained even in the event of a complete loss of aircraft power.
+  source: CS-25.1457(d)
+  priority: High
+
+- id: FDR-REQ-008
+  title: Data Parameter Accuracy and Resolution
+  description: Each recorded parameter shall meet the accuracy and resolution requirements outlined in the applicable Minimum Operational Performance Standards (MOPS) for Flight Data Recorders (e.g., EUROCAE ED-112A). Validation testing shall confirm compliance across the entire operating envelope.
+  source: EUROCAE ED-112A
+  priority: High
+
+- id: FDR-REQ-009
+  title: Power Supply Redundancy and Monitoring
+  description: The FDR shall have a redundant power supply system ensuring continuous operation even in the event of primary power failure. The power supply status (primary/backup) shall be monitored and recorded as a separate data parameter.
+  source: Internal Spec Aircraft Power Management System
+  priority: Medium
+
+- id: FDR-REQ-010
+  title: Data Download and Playback Compatibility
+  description: The FDR data download interface shall be compatible with industry-standard playback and analysis software. The data format shall conform to a published standard (e.g., ARINC 717). Validation testing shall include successful data retrieval and analysis by multiple independent software packages.
+  source: ARINC 717, Internal Spec Data Format Standards
+  priority: Medium
+```

@@ -16,6 +16,7 @@ google-cloud-aiplatform = { version = "^1.97.0", extras = [
     "adk",
     "agent-engines",
 ] }
+reportlab = "^4.4.2"
 
 [tool.poetry.group.dev]
 optional = true

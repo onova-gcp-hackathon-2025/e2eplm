@@ -16,12 +16,14 @@ graph TD
     
     subgraph "ReqPilot Agent System"
         Steering(🤖 Steering Agent) -->|🗂️ Coordinates| ReqRefiner
-        Steering -->|🗂️ Coordinates| DocIngester
+        Steering -->|🗂️ Coordinates| PDFArchivist
+        Steering -->|🗂️ Coordinates| RequirementsCurator
         Steering -->|🗂️ Coordinates| GapAnalyzer
         Steering -->|🗂️ Coordinates| ReportGenerator
         
         ReqRefiner(🛠️🤖 ReqRefiner Agent) -->|✨ Improved Requirements| Steering
-        DocIngester(📥🤖 Document Ingestion Agent) -->|🔎 Extracted Requirements| Steering
+        PDFArchivist(📥🤖 PDF Archivist Agent) -->|🔎 Extracted PDF Requirements| Steering
+        RequirementsCurator(🔎🤖 Requirements Curator Agent) -->|💾 Curated Requirements| Steering
         GapAnalyzer(🕳️🤖 Gap Analysis Agent) -->|📈 Validation Results| Steering
         ReportGenerator(📑🤖 Report Generation Agent) -->|📝 Summary Reports| Steering
     end
@@ -38,10 +40,10 @@ graph TD
     end
     
     Frontend <-->|🔗 API Requests| CloudRun
-    DOORS -->|📤 Requirements Export| DocIngester
-    PDFs -->|📤 Response Documents| DocIngester
+    DOORS -->|📤 Requirements Export| RequirementsCurator
+    PDFs -->|📤 Response Documents| PDFArchivist
     
-    DocIngester <--> CloudStorage
+    PDFArchivist <--> CloudStorage
     ReqRefiner <--> VertexAI
     GapAnalyzer <--> VertexAI
     
@@ -51,7 +53,8 @@ graph TD
 
 ## Key Features
 
-- **Requirement Extraction**: Automatically extract requirements from IBM DOORS webservices and PDF documents
+- **PDF Requirement Extraction**: Automatically extract requirements from PDF documents using the PDFArchivist agent
+- **IBM DOORS Integration & Curation**: Fetch, check, and manage requirements from IBM DOORS using the Requirements Curator agent
 - **Quality Enhancement**: Improve requirement quality using the ReqRefiner agent
 - **Gap Analysis**: Identify missing, ambiguous, or misaligned requirements
 - **Reporting**: Generate comprehensive validation reports with remediation suggestions
@@ -91,7 +94,8 @@ e2eplm/
 │   ├── model.py                   # Model selection (import MODEL from here)
 │   ├── .env
 │   └── sub_agents/                # Specialized agent implementations
-│       ├── doc_ingester/          # Document ingestion and extraction logic
+│       ├── pdf_archivist/         # PDF parsing and extraction logic
+│       ├── requirements_curator/  # IBM DOORS integration, requirement unicity & clarity
 │       ├── gap_analyzer/          # Gap analysis between requirements and responses
 │       ├── req_refiner/           # Requirement quality improvement/refinement
 │       ├── report_generator/      # Validation summary and reporting

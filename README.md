@@ -77,11 +77,13 @@ graph TD
 python -m venv .venv
 source .venv/bin/activate
 ```
-- **Install the Google ADK**:
+- **Install all dependencies using Poetry**:
 ```bash
 pip install poetry
 poetry install
 ```
+> All required dependencies, including Vertex AI SDK and ADK, are managed via Poetry.  
+> Do **not** install with `pip install google-cloud-aiplatform[...]` directly.
 
 ### 2. Project Structure
 The project structure is as follows:
@@ -148,13 +150,13 @@ print(f'To access latest log: tail -F {latest_log_link}')
 
 Alternatively, you can start your terminal with administrative privileges to avoid this issue.
 
-### 6. Run the Agent
+### 6. Run the Agent Locally
 - Using command line:
 ```bash
 adk run steering_agent
 ```
 
-- Navigate to the parent directory and launch the agent:
+- Or launch the web UI:
 ```bash
 adk web
 ```
@@ -180,50 +182,71 @@ Identify requirements that are conflicting or overlapping."
 2. Type `Cloud Code: Sign In` and press Enter.
 3. Follow the prompts to authenticate with your Google Cloud account.
 
-### 9. Deploy to Google Cloud
-#### Prerequisites
-1. Install the `gcloud` CLI without admin rights:
-   - Download and run the installer using PowerShell:
-```powershell
-(New-Object Net.WebClient).DownloadFile("https://dl.google.com/dl/cloudsdk/channels/rapid/GoogleCloudSDKInstaller.exe", "$env:Temp\GoogleCloudSDKInstaller.exe")
-& $env:Temp\GoogleCloudSDKInstaller.exe
-```
-   - Follow the prompts in the installer to complete the installation. Ensure the options to add `gcloud` to your `PATH` and start the shell are selected.
-   - After installation, verify the installation:
-```powershell
-gcloud --version
-```
+### 9. Deploy to Vertex AI Agent Engine
 
-2. Ensure you are authenticated with Google Cloud:
+#### Prerequisites
+1. Install the `gcloud` CLI and authenticate:
 ```bash
 gcloud auth login
 gcloud config set project hacker2025-team-12-dev
 gcloud auth application-default login
 ```
-
-`gcloud auth application-default login` is required for ADC see: https://cloud.google.com/docs/authentication/set-up-adc-local-dev-environment
-
-3. Enable required APIs:
+2. Enable required APIs:
 ```bash
-gcloud services enable run.googleapis.com artifactregistry.googleapis.com
+gcloud services enable aiplatform.googleapis.com run.googleapis.com artifactregistry.googleapis.com compute.googleapis.com
 ```
+3. Ensure your `.env` is configured with your project and bucket.
 
 #### Steps to Deploy
-1. Build the container image:
+
+To get the permissions that you need to use Vertex AI Agent Engine, ask your administrator to grant you the following IAM roles on your project:
+* Vertex AI User (roles/aiplatform.user)
+* Storage Admin (roles/storage.admin)
+source: https://cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/quickstart#local-shell_1
+
+1. **Ensure all dependencies are installed via Poetry**:
 ```bash
-gcloud builds submit --tag gcr.io/hacker2025-team-12-dev/e2eplm
+poetry install --with deployment
 ```
 
-2. Deploy the container to Cloud Run:
+2. **Deploy the agent using the deployment script:**
 ```bash
-gcloud run deploy e2eplm \
-    --image gcr.io/hacker2025-team-12-dev/e2eplm \
-    --platform managed \
-    --region us-central1 \
-    --allow-unauthenticated
+python deployment/deploy.py --create
+```
+- This will deploy your agent to Vertex AI Agent Engine and print the resource name.
+
+In console navigate to Vertex AI > Agent Builder > Agent Engine to see your deployed agent:
+https://console.cloud.google.com/vertex-ai/agents/agent-engines?inv=1&invt=Ab0ixg&project=hacker2025-team-12-dev
+
+3. **List deployed agents:**
+```bash
+python deployment/deploy.py --list
 ```
 
-3. Note the service URL provided after deployment and use it to access your application.
+4. **Delete a deployed agent:**
+```bash
+python deployment/deploy.py --delete --resource_id=<resource_id>
+```
+
+5. **(Optional) Try your agent remotely:**
+   - See [ADK Agent Engine Quickstart](https://google.github.io/adk-docs/deploy/agent-engine/) for remote session and query examples.
+
+#### Troubleshooting Deployment Failures
+
+If you see an error like:
+```
+google.api_core.exceptions.InvalidArgument: 400 Reasoning Engine instance ... failed to start and cannot serve traffic.
+Please refer to our documentation (https://cloud.google.com/vertex-ai/generative-ai/docs/reasoning-engine/troubleshooting/deploy) for checking logs and other troubleshooting tips.
+```
+- **Check logs in Google Cloud Console:**  
+  Visit the link provided in the error message or go to [Cloud Logging](https://console.cloud.google.com/logs/query) and filter by your project.
+- **Common causes:**
+  - Missing or incompatible dependencies (ensure all required packages are in your Poetry environment).
+  - Python version mismatch (Vertex AI Agent Engine supports Python >=3.9 and <=3.12).
+  - Incorrect or missing environment variables (check `.env` and deployment script output).
+  - Issues with the agent code (syntax errors, missing imports, etc.).
+- **Documentation:**  
+  See [Vertex AI Agent Engine Troubleshooting Guide](https://cloud.google.com/vertex-ai/generative-ai/docs/reasoning-engine/troubleshooting/deploy) for more details.
 
 ## Running Tests
 

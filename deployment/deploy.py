@@ -1,14 +1,17 @@
 """Deployment script for Steering Agent"""
 
+# NOTE: All dependencies are managed via Poetry. Before running this script,
+# ensure you have run `poetry install` in your environment.
+
 
 import os
+from absl import app, flags
+from dotenv import load_dotenv
 
 import vertexai
-from absl import app, flags
-from steering_agent.agent import root_agent
-from dotenv import load_dotenv
 from vertexai import agent_engines
 from vertexai.preview.reasoning_engines import AdkApp
+from steering_agent.agent import root_agent
 
 FLAGS = flags.FLAGS
 flags.DEFINE_string("project_id", None, "GCP project ID.")
@@ -25,18 +28,19 @@ flags.mark_bool_flags_as_mutual_exclusive(["create", "delete"])
 def create() -> None:
     """Creates an agent engine for Steering Agent."""
     adk_app = AdkApp(agent=root_agent, enable_tracing=True)
-
     remote_agent = agent_engines.create(
-        adk_app,
-        display_name=root_agent.name,
+        agent_engine=root_agent,
+        display_name="Steering Agent",
+        description="Agent for steering the requirement validation process.",
         requirements=[
-            "google-adk (>=0.0.2)",
-            "google-cloud-aiplatform[agent_engines] (>=1.91.0,!=1.92.0)",
-            "google-genai (>=1.5.0,<2.0.0)",
+            "google-adk (>=1.3.0,<2.0.0)",
+            "google-cloud-aiplatform[agent_engines] (>=1.93.0,<2.0.0)",
+            "google-genai (>=1.20.0,<2.0.0)",
             "pydantic (>=2.10.6,<3.0.0)",
-            "absl-py (>=2.2.1,<3.0.0)",
+            "absl-py (>=2.3.0,<3.0.0)",
+            "cloudpickle (>=3.0.0,<4.0.0)"
         ],
-        #        extra_packages=[""],
+        extra_packages = ["steering_agent"] # directory that includes agents/agent.py
     )
     print(f"Created remote agent: {remote_agent.resource_name}")
 

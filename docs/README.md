@@ -29,7 +29,46 @@ It leverages Google Cloud Platform (GCP), Vertex AI, and the Google Agent Develo
 <details>
 <summary>Click to expand architecture diagram</summary>
 
-![Architecture Diagram](./assets/architecture.png)
+```mermaid
+graph TD
+    User([👩‍💻 Aerospace Engineer]) -->|📤 Uploads Documents| Frontend[🖥️ Frontend]
+    
+    subgraph "ReqPilot Agent System"
+        Steering(🤖 Steering Agent) -->|🗂️ Coordinates| ReqRefiner
+        Steering -->|🗂️ Coordinates| PDFArchivist
+        Steering -->|🗂️ Coordinates| RequirementsCurator
+        Steering -->|🗂️ Coordinates| GapAnalyzer
+        Steering -->|🗂️ Coordinates| ReportGenerator
+        
+        ReqRefiner(🛠️🤖 ReqRefiner Agent) -->|✨ Improved Requirements| Steering
+        PDFArchivist(📥🤖 PDF Archivist Agent) -->|🔎 Extracted PDF Requirements| Steering
+        RequirementsCurator(🔎🤖 Requirements Curator Agent) -->|💾 Curated Requirements| Steering
+        GapAnalyzer(🕳️🤖 Gap Analysis Agent) -->|📈 Validation Results| Steering
+        ReportGenerator(📑🤖 Report Generation Agent) -->|📝 Summary Reports| Steering
+    end
+    
+    subgraph "Data Sources"
+        DOORS[(💾 IBM DOORS)]
+        PDFs[(📄 Response PDFs)]
+    end
+    
+    subgraph "GCP Infrastructure"
+        CloudStorage[(🗄️ Cloud Storage)]
+        VertexAI[🧠 Vertex AI]
+        CloudRun[🚀 Cloud Run]
+    end
+    
+    Frontend <-->|🔗 API Requests| CloudRun
+    DOORS -->|📤 Requirements Export| RequirementsCurator
+    PDFs -->|📤 Response Documents| PDFArchivist
+    
+    PDFArchivist <--> CloudStorage
+    ReqRefiner <--> VertexAI
+    GapAnalyzer <--> VertexAI
+    
+    CloudRun -->|🌐 Hosts| Frontend
+    CloudRun -->|🌐 Hosts| Steering
+```
 </details>
 
 - **Frontend:** Angular + Material UI

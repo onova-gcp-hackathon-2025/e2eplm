@@ -74,15 +74,20 @@ It leverages Google Cloud Platform (GCP), Vertex AI, and the Google Agent Develo
 
 Click any thumbnail to enlarge.
 
-| Web UI Home | Upload Dialog | Validation Report |
-|:-----------:|:------------:|:----------------:|
-| [![Web UI Home](./assets/ui-home-thumb.png)](./assets/ui-home.png) | [![Upload Dialog](./assets/ui-upload-thumb.png)](./assets/ui-upload.png) | [![Validation Report](./assets/ui-report-thumb.png)](./assets/ui-report.png) |
+| Capture n°1 | Capture n°2 | Capture n°3 | Capture n°4 |
+|:-----------:|:-----------:|:-----------:|:-----------:|
+| [![2025-06-20 195016.png](./screencaptures/2025-06-20%20195016.png)](./screencaptures/2025-06-20%20195016.png) | [![2025-06-20 195116.png](./screencaptures/2025-06-20%20195116.png)](./screencaptures/2025-06-20%20195116.png) | [![2025-06-20 195139.png](./screencaptures/2025-06-20%20195139.png)](./screencaptures/2025-06-20%20195139.png) | [![2025-06-20 195155.png](./screencaptures/2025-06-20%20195155.png)](./screencaptures/2025-06-20%20195155.png) |
 
 ---
 
 ## Demo Recording
+- [🎬 Watch the full demo](./Recording-20250620_201538.webm)
 
-- [🎬 Watch the full demo (YouTube)](https://youtu.be/your-demo-link)
+<video controls width="720">
+  <source src="./Recording-20250620_201538.webm" type="video/webm">
+  Your browser does not support the video tag.
+</video>
+
 
 ---
 

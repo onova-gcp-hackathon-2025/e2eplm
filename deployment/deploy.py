@@ -3,7 +3,7 @@
 # NOTE: All dependencies are managed via Poetry. Before running this script,
 # ensure you have run `poetry install` in your environment.
 
-
+import datetime
 import os
 from absl import app, flags
 from dotenv import load_dotenv
@@ -21,6 +21,7 @@ flags.DEFINE_string("resource_id", None, "ReasoningEngine resource ID.")
 
 flags.DEFINE_bool("list", False, "List all agents.")
 flags.DEFINE_bool("create", False, "Creates a new agent.")
+flags.DEFINE_bool("update", False, "Update an existing agent.")
 flags.DEFINE_bool("delete", False, "Deletes an existing agent.")
 flags.mark_bool_flags_as_mutual_exclusive(["create", "delete"])
 
@@ -34,7 +35,7 @@ def create() -> None:
         description="Agent for steering the requirement validation process.",
         requirements=[
             "google-adk (>=1.3.0,<2.0.0)",
-            "google-cloud-aiplatform[agent_engines] (>=1.93.0,<2.0.0)",
+            "google-cloud-aiplatform[adk,agent_engines] (>=1.93.0,<2.0.0)",
             "google-genai (>=1.20.0,<2.0.0)",
             "pydantic (>=2.10.6,<3.0.0)",
             "absl-py (>=2.3.0,<3.0.0)",
@@ -44,6 +45,15 @@ def create() -> None:
     )
     print(f"Created remote agent: {remote_agent.resource_name}")
 
+def update(resource_id: str) -> None:
+    """Updates an existing agent engine."""
+    timestamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+    remote_agent = agent_engines.get(resource_id)
+    remote_agent.update(
+        display_name=f"Steering Agent {timestamp}",
+        description="Agent for steering the requirement validation process.",
+    )
+    print(f"Updated remote agent: {remote_agent.resource_name}")
 
 def delete(resource_id: str) -> None:
     remote_agent = agent_engines.get(resource_id)
@@ -108,6 +118,11 @@ def main(argv: list[str]) -> None:
         list_agents()
     elif FLAGS.create:
         create()
+    elif FLAGS.update:
+        if not FLAGS.resource_id:
+            print("resource_id is required for update")
+            return
+        update(FLAGS.resource_id)
     elif FLAGS.delete:
         if not FLAGS.resource_id:
             print("resource_id is required for delete")

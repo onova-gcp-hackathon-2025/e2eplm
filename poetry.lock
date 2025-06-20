@@ -447,14 +447,14 @@ files = [
 
 [[package]]
 name = "fastapi"
-version = "0.115.12"
+version = "0.115.13"
 description = "FastAPI framework, high performance, easy to learn, fast to code, ready for production"
 optional = false
 python-versions = ">=3.8"
 groups = ["main", "dev"]
 files = [
-    {file = "fastapi-0.115.12-py3-none-any.whl", hash = "sha256:e94613d6c05e27be7ffebdd6ea5f388112e5e430c8f7d6494a9d1d88d43e814d"},
-    {file = "fastapi-0.115.12.tar.gz", hash = "sha256:1e2c2a2646905f9e83d32f04a3f86aff4a286669c6c950ca95b5fd68c2602681"},
+    {file = "fastapi-0.115.13-py3-none-any.whl", hash = "sha256:0a0cab59afa7bab22f5eb347f8c9864b681558c278395e94035a741fc10cd865"},
+    {file = "fastapi-0.115.13.tar.gz", hash = "sha256:55d1d25c2e1e0a0a50aceb1c8705cd932def273c102bff0b1c1da88b3c6eb307"},
 ]
 
 [package.dependencies]
@@ -468,17 +468,18 @@ standard = ["email-validator (>=2.0.0)", "fastapi-cli[standard] (>=0.0.5)", "htt
 
 [[package]]
 name = "google-adk"
-version = "1.3.0"
+version = "1.4.1"
 description = "Agent Development Kit"
 optional = false
 python-versions = ">=3.9"
 groups = ["main", "dev"]
 files = [
-    {file = "google_adk-1.3.0-py3-none-any.whl", hash = "sha256:a57f05633bd2d9937b9a73ca4fc4a5c7d9d1e2d28390c8df2be134d7d4b1f79c"},
-    {file = "google_adk-1.3.0.tar.gz", hash = "sha256:3be048cd40fb3a2c2f51ecb61233d78434cab2aba5a58507156c7daf2b9772fa"},
+    {file = "google_adk-1.4.1-py3-none-any.whl", hash = "sha256:f789f27eab16c499719fa66cd9033ab69a34c381368df8e43a3f9bebdcf7e3ac"},
+    {file = "google_adk-1.4.1.tar.gz", hash = "sha256:fc29a3840343fae660447e594d4d4851176ddc970dcaae3082bc97f403e7e832"},
 ]
 
 [package.dependencies]
+anyio = {version = ">=4.9.0", markers = "python_version >= \"3.10\""}
 authlib = ">=1.5.1"
 click = ">=8.1.8"
 fastapi = ">=0.115.0"
@@ -498,15 +499,20 @@ opentelemetry-exporter-gcp-trace = ">=1.9.0"
 opentelemetry-sdk = ">=1.31.0"
 pandas = {version = ">=2.2.3", optional = true, markers = "extra == \"eval\""}
 pydantic = ">=2.0,<3.0.0"
+python-dateutil = ">=2.9.0.post0"
 python-dotenv = ">=1.0.0"
 PyYAML = ">=6.0.2"
+requests = ">=2.32.4"
 sqlalchemy = ">=2.0"
+starlette = ">=0.46.2"
 tabulate = {version = ">=0.9.0", optional = true, markers = "extra == \"eval\""}
 typing-extensions = ">=4.5,<5"
 tzlocal = ">=5.3"
 uvicorn = ">=0.34.0"
+websockets = ">=15.0.1"
 
 [package.extras]
+a2a = ["a2a-sdk (>=0.2.7) ; python_version >= \"3.10\""]
 dev = ["flit (>=3.10.0)", "isort (>=6.0.0)", "mypy (>=1.15.0)", "pyink (>=24.10.0)", "pylint (>=2.6.0)"]
 docs = ["autodoc_pydantic", "furo", "myst-parser", "sphinx", "sphinx-autodoc-typehints", "sphinx-rtd-theme"]
 eval = ["google-cloud-aiplatform[evaluation] (>=1.87.0)", "pandas (>=2.2.3)", "tabulate (>=0.9.0)"]
@@ -545,14 +551,14 @@ grpcio-gcp = ["grpcio-gcp (>=0.2.2,<1.0.0)"]
 
 [[package]]
 name = "google-api-python-client"
-version = "2.172.0"
+version = "2.173.0"
 description = "Google API Client Library for Python"
 optional = false
 python-versions = ">=3.7"
 groups = ["main", "dev"]
 files = [
-    {file = "google_api_python_client-2.172.0-py3-none-any.whl", hash = "sha256:9f1b9a268d5dc1228207d246c673d3a09ee211b41a11521d38d9212aeaa43af7"},
-    {file = "google_api_python_client-2.172.0.tar.gz", hash = "sha256:dcb3b7e067154b2aa41f1776cf86584a5739c0ac74e6ff46fc665790dca0e6a6"},
+    {file = "google_api_python_client-2.173.0-py3-none-any.whl", hash = "sha256:16a8e81c772dd116f5c4ee47d83643149e1367dc8fb4f47cb471fbcb5c7d7ac7"},
+    {file = "google_api_python_client-2.173.0.tar.gz", hash = "sha256:b537bc689758f4be3e6f40d59a6c0cd305abafdea91af4bc66ec31d40c08c804"},
 ]
 
 [package.dependencies]
@@ -953,14 +959,14 @@ testing = ["pytest"]
 
 [[package]]
 name = "google-genai"
-version = "1.20.0"
+version = "1.21.1"
 description = "GenAI Python SDK"
 optional = false
 python-versions = ">=3.9"
 groups = ["main", "dev"]
 files = [
-    {file = "google_genai-1.20.0-py3-none-any.whl", hash = "sha256:ccd61d6ebcb14f5c778b817b8010e3955ae4f6ddfeaabf65f42f6d5e3e5a8125"},
-    {file = "google_genai-1.20.0.tar.gz", hash = "sha256:dccca78f765233844b1bd4f1f7a2237d9a76fe6038cf9aa72c0cd991e3c107b5"},
+    {file = "google_genai-1.21.1-py3-none-any.whl", hash = "sha256:fa6fa5311f9a757ce65cd528a938a0f309bb3032516015bf5b3022e63b2fc46b"},
+    {file = "google_genai-1.21.1.tar.gz", hash = "sha256:5412fde7f0b39574a4670a9a25e398824a12b3cddd632fdff66d1b9bcfdbfcb4"},
 ]
 
 [package.dependencies]
@@ -969,6 +975,7 @@ google-auth = ">=2.14.1,<3.0.0"
 httpx = ">=0.28.1,<1.0.0"
 pydantic = ">=2.0.0,<3.0.0"
 requests = ">=2.28.1,<3.0.0"
+tenacity = ">=8.2.3,<9.0.0"
 typing-extensions = ">=4.11.0,<5.0.0"
 websockets = ">=13.0.0,<15.1.0"
 
@@ -2076,14 +2083,14 @@ diagrams = ["jinja2", "railroad-diagrams"]
 
 [[package]]
 name = "pytest"
-version = "8.4.0"
+version = "8.4.1"
 description = "pytest: simple powerful testing with Python"
 optional = false
 python-versions = ">=3.9"
 groups = ["dev"]
 files = [
-    {file = "pytest-8.4.0-py3-none-any.whl", hash = "sha256:f40f825768ad76c0977cbacdf1fd37c6f7a468e460ea6a0636078f8972d4517e"},
-    {file = "pytest-8.4.0.tar.gz", hash = "sha256:14d920b48472ea0dbf68e45b96cd1ffda4705f33307dcc86c676c1b5104838a6"},
+    {file = "pytest-8.4.1-py3-none-any.whl", hash = "sha256:539c70ba6fcead8e78eebbf1115e8b589e7565830d7d006a8723f19ac8a0afb7"},
+    {file = "pytest-8.4.1.tar.gz", hash = "sha256:7c67fd69174877359ed9371ec3af8a3d2b04741818c51e5e99cc1742251fa93c"},
 ]
 
 [package.dependencies]
@@ -2859,6 +2866,22 @@ files = [
 widechars = ["wcwidth"]
 
 [[package]]
+name = "tenacity"
+version = "8.5.0"
+description = "Retry code until it succeeds"
+optional = false
+python-versions = ">=3.8"
+groups = ["main", "dev"]
+files = [
+    {file = "tenacity-8.5.0-py3-none-any.whl", hash = "sha256:b594c2a5945830c267ce6b79a166228323ed52718f30302c1359836112346687"},
+    {file = "tenacity-8.5.0.tar.gz", hash = "sha256:8bc6c0c8a09b31e6cad13c47afbed1a567518250a9a171418582ed8d9c20ca78"},
+]
+
+[package.extras]
+doc = ["reno", "sphinx"]
+test = ["pytest", "tornado (>=4.5)", "typeguard"]
+
+[[package]]
 name = "threadpoolctl"
 version = "3.6.0"
 description = "threadpoolctl"
@@ -2964,14 +2987,14 @@ files = [
 
 [[package]]
 name = "urllib3"
-version = "2.4.0"
+version = "2.5.0"
 description = "HTTP library with thread-safe connection pooling, file post, and more."
 optional = false
 python-versions = ">=3.9"
 groups = ["main", "dev"]
 files = [
-    {file = "urllib3-2.4.0-py3-none-any.whl", hash = "sha256:4e16665048960a0900c702d4a66415956a584919c03361cac9f1df5c5dd7e813"},
-    {file = "urllib3-2.4.0.tar.gz", hash = "sha256:414bc6535b787febd7567804cc015fee39daab8ad86268f1310a9250697de466"},
+    {file = "urllib3-2.5.0-py3-none-any.whl", hash = "sha256:e6b01673c0fa6a13e374b50871808eb3bf7046c4b125b216f6bf1cc604cff0dc"},
+    {file = "urllib3-2.5.0.tar.gz", hash = "sha256:3fc47733c7e419d4bc3f6b3dc2b4f890bb743906a30d56ba4a5bfa4bbff92760"},
 ]
 
 [package.extras]

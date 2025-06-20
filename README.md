@@ -135,16 +135,14 @@ gcloud config get-value project
 ### 5. Workaround for Elevated Permission Error on Windows
 If you encounter the error `OSError: [WinError 1314] A required privilege is not held by the client`, follow these steps:
 
-1. Navigate to the file `.venv\Lib\site-packages\google\adk\cli\cli_tools_click.py`.
+1. Navigate to the file `.venv\Lib\site-packages\google\adk\cli\utils\logs.py`.
 2. Locate the `cli_run()` function.
 3. Comment out the line that says:
 ```python
-latest_log_link = os.path.join(log_dir, f'{log_file_prefix}.latest.log')
 if os.path.islink(latest_log_link):
   os.unlink(latest_log_link)
 os.symlink(log_filepath, latest_log_link)
 
-print(f'To access latest log: tail -F {latest_log_link}')
 ```
 4. Save the file and rerun your agent.
 

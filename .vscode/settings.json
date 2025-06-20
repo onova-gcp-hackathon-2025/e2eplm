@@ -8,4 +8,10 @@
     "chat.promptFiles": true,
     "chat.mcp.enabled": true,
     "python.analysis.typeCheckingMode": "standard",
+    "files.exclude": {
+        ".venv": true,
+        "**/.pytest_cache": true,
+        "**/__pycache__": true,
+        "**/.adk": true
+    }
 }

@@ -21,17 +21,17 @@ Our application, ReqPilot, guides requirements validation and compliance, accele
   - Draft initial architecture diagram ✅
   - Define data model and flow ✅
   - Create elevator pitch ✅
-  - Start initial Figma mockups [onova-gcp-hackathon-2025-e2eplm](https://www.figma.com/files/team/1517080493673594510) 🚧
+  - ~~Start initial Figma mockups [onova-gcp-hackathon-2025-e2eplm](https://www.figma.com/files/team/1517080493673594510)~~ 🚫
 
 ### Day 2: Backend Core - Ingestion
 - **Morning**:
   - Set up Cloud Storage for document handling ✅
   - Implement (mock) DOORS data connector ✅
-  - Build PDF parser for response documents 🚧
+  - Build PDF parser for response documents ✅
   
 - **Afternoon**:
-  - Develop requirement extraction service 🚧
-  - Implement document classification
+  - Develop requirement extraction service ✅
+  - ~~Implement document classification~~ 🚫
   - ~~Set up BigQuery tables for requirements storage~~ 🚫
   - Unit tests for agents responses ✅
 
@@ -39,13 +39,13 @@ Our application, ReqPilot, guides requirements validation and compliance, accele
 - **Morning**:
   - Integrate Vertex AI for NLP processing ✅
   - Build requirement intent analysis service ✅
-  - Develop comparison engine between sources
-  
+  - Develop comparison engine between sources ✅
+
 - **Afternoon**:
   - Implement gap detection algorithm ✅
   - Create validation scoring system  ✅
   - Build report generation service ✅
-  - Deploy backend to Cloud Run 🚧
+  - Deploy backend to Cloud Run ✅
 
 ### Day 4: Frontend Development
 - **Morning**:
@@ -57,28 +57,28 @@ Our application, ReqPilot, guides requirements validation and compliance, accele
   - Build validation dashboard
   - Implement detailed requirement view
   - Create gap remediation interface
-  - Connect to backend APIs
+  - Connect to backend APIs ✅
 
 ### Day 5: Integration & Testing
 - **Morning**:
-  - End-to-end testing
-  - Generate synthetic test data
-  - Fix critical bugs
+  - End-to-end testing ✅
+  - Generate synthetic test data ✅
+  - Fix critical bugs ✅
   
 - **Afternoon**:
-  - Performance optimization
+  - ~~Performance optimization~~ 🚫
   - Polish UI/UX details
-  - Implement user feedback
-  - Create demonstration scenarios
+  - ~~Implement user feedback~~ 🚫
+  - Create demonstration scenarios ✅
 
 ### Day 6: Finalization & Presentation
 - **Morning**:
-  - Final testing and bug fixes
-  - Complete documentation
+  - Final testing and bug fixes ✅
+  - Complete documentation ✅
   - Rehearse presentation
   
 - **Afternoon**:
-  - Polish final Figma mockups
+  - ~~Polish final Figma mockups~~ 🚫
   - Finalize pitch deck
   - Prepare demo script
   - Submit project

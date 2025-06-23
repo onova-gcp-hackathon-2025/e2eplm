@@ -9,6 +9,11 @@ This page is designed for both functional and technical experts who want a rapid
 
 ## What is ReqPilot?
 
+> **🚀 Elevator Pitch**
+>
+> **ReqPilot by Airquire** is revolutionizing aerospace engineering compliance by automating requirements validation. Our AI-powered platform ingests complex technical specifications and engineering responses, then uses advanced natural language understanding to identify gaps, misalignments, and ambiguities. Unlike traditional manual processes that take weeks, ReqPilot delivers comprehensive validation in minutes, reducing rework by 60% and accelerating development cycles. With Airquire, aerospace engineers can focus on innovation rather than documentation.
+
+
 **ReqPilot** automates the validation of complex aerospace requirements, reducing manual effort, accelerating compliance, and minimizing costly rework.  
 It leverages Google Cloud Platform (GCP), Vertex AI, and the Google Agent Development Kit (ADK) to ingest, analyze, and cross-reference requirements and engineering responses.
 
@@ -30,7 +35,9 @@ See: [README.md](https://github.com/onova-gcp-hackathon-2025/e2eplm/blob/main/RE
 
 - **Frontend:** Angular + Material UI
 - **Backend:** Python, Google ADK, Vertex AI, Cloud Run
-- **Data Sources:** IBM DOORS, PDF documents, Cloud Storage
+- **Data Sources:** IBM DOORS, PDF documents (synthetic data generated using Vertex AI), Cloud Storage
+- **LLMs Models:** [Gemini 2.5 Pro](https://cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-pro)
+- **Deployment:** Vertex AI Agent Engine, Cloud Run, Cloud Storage
 
 ---
 

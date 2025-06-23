@@ -94,7 +94,7 @@ def main(argv: list[str]) -> None:  # pylint: disable=unused-argument
     ):
         print(event)
 
-    while False:
+    while True:
         user_input = input("Input: ")
         if user_input == "quit":
             break

@@ -74,22 +74,31 @@ Click any thumbnail to enlarge.
 
 ## Demo Recording
 
-- [🎬 Few shot prompts](./recording/Recording-20250620_201538.webm)
+[🎬 Agentic Hackathon 2025 - Demo](./recording/Recording-20250623_221045.webm)
+<video controls width="720">
+  <source src="./recording/Recording-20250623_221045.webm" type="video/webm">
+  Your browser does not support the video tag.
+</video>
 
+[🎬 Agentic Hackathon 2025 - Demo](./recording/Recording-20250623_221253.webm)
+<video controls width="720">
+  <source src="./recording/Recording-20250623_221253.webm" type="video/webm">
+  Your browser does not support the video tag.
+</video>
+
+[🎬 Few shot prompts](./recording/Recording-20250620_201538.webm)
 <video controls width="720">
   <source src="./recording/Recording-20250620_201538.webm" type="video/webm">
   Your browser does not support the video tag.
 </video>
 
-- [🎬 One shot prompt](./recording/Recording-20250623_094911.webm)
-
+[🎬 One shot prompt](./recording/Recording-20250623_094911.webm)
 <video controls width="720">
   <source src="./recording/Recording-20250623_094911.webm" type="video/webm">
   Your browser does not support the video tag.
 </video>
 
-- [🎬 Google Cloud Platform infra](./recording/Recording-20250623_095724.webm)
-
+[🎬 Google Cloud Platform infra](./recording/Recording-20250623_095724.webm)
 <video controls width="720">
   <source src="./recording/Recording-20250623_095724.webm" type="video/webm">
   Your browser does not support the video tag.

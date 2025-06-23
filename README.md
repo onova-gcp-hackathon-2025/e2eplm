@@ -229,6 +229,23 @@ python deployment/deploy.py --delete --resource_id=<resource_id>
 5. **(Optional) Try your agent remotely:**
    - See [ADK Agent Engine Quickstart](https://google.github.io/adk-docs/deploy/agent-engine/) for remote session and query examples.
 
+![Screenshot](docs/screencaptures/2025-06-23_114708.png)
+
+
+* [reasoningEngines/query](https://cloud.google.com/vertex-ai/generative-ai/docs/reference/rest/v1/projects.locations.reasoningEngines/query)
+* [reasoningEngines/streamQuery](https://cloud.google.com/vertex-ai/generative-ai/docs/reference/rest/v1/projects.locations.reasoningEngines/streamQuery)
+
+name: `projects/hacker2025-team-12-dev/locations/us-central1/reasoningEngines/4174106778851606528`
+
+```json
+{
+  "input": {
+    "message": "hello",
+    "user_id": "benjamin.francisoud@capgemini.com"
+  }
+}
+```
+
 #### Troubleshooting Deployment Failures
 
 If you see an error like:

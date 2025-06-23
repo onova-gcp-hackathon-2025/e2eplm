@@ -28,18 +28,18 @@ flags.mark_bool_flags_as_mutual_exclusive(["create", "delete"])
 
 def create() -> None:
     """Creates an agent engine for Steering Agent."""
+    timestamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
     adk_app = AdkApp(agent=root_agent, enable_tracing=True)
     remote_agent = agent_engines.create(
         agent_engine=root_agent,
-        display_name="Steering Agent",
+        display_name=f"Steering Agent {timestamp}",
         description="Agent for steering the requirement validation process.",
         requirements=[
-            "google-adk (>=1.3.0,<2.0.0)",
-            "google-cloud-aiplatform[adk,agent_engines] (>=1.93.0,<2.0.0)",
-            "google-genai (>=1.20.0,<2.0.0)",
+            "google-adk (>=0.0.2)",
+            "google-cloud-aiplatform[agent_engines] (>=1.91.0,!=1.92.0)",
+            "google-genai (>=1.5.0,<2.0.0)",
             "pydantic (>=2.10.6,<3.0.0)",
-            "absl-py (>=2.3.0,<3.0.0)",
-            "cloudpickle (>=3.0.0,<4.0.0)"
+            "absl-py (>=2.2.1,<3.0.0)",
         ],
         extra_packages = ["steering_agent"] # directory that includes agents/agent.py
     )

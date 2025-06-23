@@ -26,7 +26,7 @@ It leverages Google Cloud Platform (GCP), Vertex AI, and the Google Agent Develo
 
 ## Architecture Overview
 
-See: https://github.com/onova-gcp-hackathon-2025/e2eplm/blob/main/README.md
+See: [README.md](https://github.com/onova-gcp-hackathon-2025/e2eplm/blob/main/README.md)
 
 - **Frontend:** Angular + Material UI
 - **Backend:** Python, Google ADK, Vertex AI, Cloud Run
@@ -45,25 +45,14 @@ See: https://github.com/onova-gcp-hackathon-2025/e2eplm/blob/main/README.md
 
 ## Quickstart
 
+See: [README.md](https://github.com/onova-gcp-hackathon-2025/e2eplm/blob/main/README.md)
+
 1. **Clone the repository** and install dependencies:
-   ```bash
-   git clone https://github.com/airquire/reqpilot.git
-   cd reqpilot
-   pip install poetry
-   poetry install
-   ```
-
 2. **Run the agent locally:**
-   ```bash
-   adk run steering_agent
-   ```
-
 3. **Access the web UI:**  
    Open [http://localhost:8000](http://localhost:8000) in your browser.
-
 4. **Deploy to Vertex AI Agent Engine:**  
    See [deployment instructions](../README.md#9-deploy-to-vertex-ai-agent-engine).
-
 ---
 
 ## Screenshots
@@ -77,13 +66,27 @@ Click any thumbnail to enlarge.
 ---
 
 ## Demo Recording
-- [🎬 Watch the full demo](./Recording-20250620_201538.webm)
+
+- [🎬 Few shot prompts](./recording/Recording-20250620_201538.webm)
 
 <video controls width="720">
-  <source src="./Recording-20250620_201538.webm" type="video/webm">
+  <source src="./recording/Recording-20250620_201538.webm" type="video/webm">
   Your browser does not support the video tag.
 </video>
 
+- [🎬 One shot prompt](./recording/Recording-20250623_094911.webm)
+
+<video controls width="720">
+  <source src="./recording/Recording-20250623_094911.webm" type="video/webm">
+  Your browser does not support the video tag.
+</video>
+
+- [🎬 Google Cloud Platform infra](./recording/Recording-20250623_095724.webm)
+
+<video controls width="720">
+  <source src="./recording/Recording-20250623_095724.webm" type="video/webm">
+  Your browser does not support the video tag.
+</video>
 
 ---
 

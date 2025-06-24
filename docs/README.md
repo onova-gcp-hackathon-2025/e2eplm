@@ -17,6 +17,12 @@ This page is designed for both functional and technical experts who want a rapid
 **ReqPilot** automates the validation of complex aerospace requirements, reducing manual effort, accelerating compliance, and minimizing costly rework.  
 It leverages Google Cloud Platform (GCP), Vertex AI, and the Google Agent Development Kit (ADK) to ingest, analyze, and cross-reference requirements and engineering responses.
 
+[🎬 Hackathon 2025 - Demo](./recording/onova-gcp-hackathon-2025-e2eplm-720p.mp4)
+<video controls width="720">
+  <source src="./recording/onova-gcp-hackathon-2025-e2eplm-720p.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
 ---
 
 ## Key Features

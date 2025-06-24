@@ -102,27 +102,15 @@ Our vision is to make compliance effortless and safety uncompromised, so enginee
 
 Technologies Used
 
-ReqPilot is built on Google Cloud Platform (GCP), leveraging Vertex AI for advanced natural language processing and the Google Agent Development Kit (ADK) for agent orchestration. The backend is implemented in Python and deployed on Cloud Run for scalability. All documents are securely stored in Cloud Storage, and the frontend is developed with Angular and Material UI for a modern user experience.
+ReqPilot is built on Google Cloud Platform (GCP), using Vertex AI for natural language processing and the Google Agent Development Kit (ADK) for agent orchestration. The backend is Python on Cloud Run, with documents stored in Cloud Storage. The frontend uses Angular and Material UI.
 
-The Agent team is composed of specialized agents, each with a distinct role in the requirements validation process:
-
-Steering Agent:
-Acts as the central orchestrator. It receives user inputs, delegates tasks to specialized sub-agents, aggregates their outputs, and ensures a seamless end-to-end validation workflow.
-
-PDFArchivist Agent:
-Extracts requirements and relevant data from PDF response documents.
-
-Requirements Curator Agent:
-Integrates with IBM DOORS to fetch, curate, and ensure the uniqueness and clarity of requirements.
-
-ReqRefiner Agent:
-Enhances and refines requirement statements for quality and compliance.
-
-GapAnalyzer Agent:
-Compares source requirements and engineering responses to identify gaps, ambiguities, or misalignments.
-
-ReportGenerator Agent:
-Compiles validation results and generates comprehensive summary reports with actionable remediation suggestions.
+Our agent team includes:
+Steering Agent: Orchestrates the workflow, delegates tasks, and aggregates results.
+PDFArchivist Agent: Extracts requirements from PDF response documents.
+Requirements Curator Agent: Fetches and curates requirements from IBM DOORS.
+ReqRefiner Agent: Refines requirement statements for clarity and compliance.
+GapAnalyzer Agent: Identifies gaps and misalignments between requirements and responses.
+ReportGenerator Agent: Compiles validation results and generates summary reports.
 
 All agents use the best large language model (gemini 2.5 pro) for consistency and are coordinated by the steering agent to deliver a robust, automated requirements validation solution.
 
